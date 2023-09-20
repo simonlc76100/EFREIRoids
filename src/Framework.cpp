@@ -2,7 +2,7 @@
 //                   Framework
 // Bibliothèque encapsulant l'utilisation de SDL 2
 
-#include "header/framework.hpp"
+#include "header/Framework.hpp"
 #include <iostream>
 
 using namespace std;

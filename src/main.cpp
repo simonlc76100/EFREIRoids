@@ -1,5 +1,5 @@
-#include "header/framework.hpp"
-#include "header/asteroid.hpp"
+#include "header/Framework.hpp"
+#include "header/Asteroid.hpp"
 
 int main(int argc, char* argv[]) {
     Framework * fw = new Framework(144, 60, 20);

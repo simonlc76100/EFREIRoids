@@ -1,4 +1,4 @@
-#include "header/asteroid.hpp"
+#include "header/Asteroid.hpp"
 
 // Constructeur
 Asteroid::Asteroid(double x, double y, double size, double xSpeed, double ySpeed)
