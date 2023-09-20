@@ -8,13 +8,14 @@ file(COPY images/ DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/images/)
 
 set(
         SRCS
-        main.cpp
-        framework.cpp
+        src/main.cpp
+        src/framework.cpp
 )
 
 set(
         HEADER
-        framework.hpp
+        include/header/framework.hpp
+        src/asteroid.cpp
 )
 
 find_package(SDL2 REQUIRED)

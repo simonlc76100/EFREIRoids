@@ -7,7 +7,7 @@
 #define FRAMEWORK_HPP_
 
 #include <string>
-#include "include/SDL2/SDL.h"
+#include "SDL2/SDL.h"
 
 using std::string;
 
@@ -17,16 +17,6 @@ public:
     // CONSTRUCTEUR ET DESTRUCTEUR //
     /////////////////////////////////
 
-
-    //////////////////////////////////////////////
-    // Constructeur.
-    // Lance l'affichage plein écran dans la résolution courante
-    // --------
-    // * fps : taux de rafraichissement de l'écran (nombre d'images par seconde)
-    // * shipSize : taille d'affichage du vaisseau, en pixels
-    // * missileSize : taille d'affichage du missile, en pixels
-    Framework(int width, int height, int fps, int shipSize, int missileSize);
-
     //////////////////////////////////////////////
     // Constructeur.
     // Lance l'affichage plein écran dans la résolution choisie
@@ -35,6 +25,17 @@ public:
     // * fps : taux de rafraichissement de l'écran (nombre d'images par seconde)
     // * shipSize : taille d'affichage du vaisseau, en pixels
     // * missileSize : taille d'affichage du missile, en pixels
+
+    Framework(int width, int height, int fps, int shipSize, int missileSize);
+
+    //////////////////////////////////////////////
+    // Constructeur.
+    // Lance l'affichage plein écran dans la résolution courante
+    // --------
+    // * fps : taux de rafraichissement de l'écran (nombre d'images par seconde)
+    // * shipSize : taille d'affichage du vaisseau, en pixels
+    // * missileSize : taille d'affichage du missile, en pixels
+
     Framework(int fps, int shipSize, int missileSize);
 
     ~Framework();
