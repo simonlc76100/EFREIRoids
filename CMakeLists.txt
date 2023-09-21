@@ -16,6 +16,8 @@ set(
         HEADER
         include/header/Framework.hpp
         src/Asteroid.cpp
+        src/FlyingObject.cpp
+        include/header/FlyingObject.hpp
 )
 
 find_package(SDL2 REQUIRED)
