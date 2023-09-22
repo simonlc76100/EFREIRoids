@@ -18,6 +18,8 @@ set(
         src/Asteroid.cpp
         src/FlyingObject.cpp
         include/header/FlyingObject.hpp
+        src/Missile.cpp
+        include/header/Missile.hpp
 )
 
 find_package(SDL2 REQUIRED)
