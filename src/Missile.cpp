@@ -24,7 +24,7 @@ void Missile::SetAngle(double angle) {
 
 void Missile::Move() {
 
-    double rad = (180.0-angle) * (M_PI/180.0);
+    double rad = angle * (M_PI/180.0);
 
     SetX(GetX() + speed * cos(rad));
     SetY(GetY() + speed * sin(rad));
