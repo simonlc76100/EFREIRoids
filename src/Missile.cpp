@@ -34,8 +34,9 @@ bool Missile::Move(double screenWidth, double screenHeight) {
 
     this->Move();
 
-    //if(GetX()<0 || GetX() > screenWidth && GetY()<0 || GetY() > screenHeight)
-
-    return true;
+    if((GetX() < 0 || GetX() > screenWidth) || (GetY() < 0 || GetY() > screenHeight)){
+        return true;
+    }
+    return false;
 }
 

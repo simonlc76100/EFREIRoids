@@ -7,20 +7,21 @@ int main(int argc, char* argv[]) {
 
     Asteroid * a = new Asteroid(fw->GetScreenWidth()/2, fw->GetScreenHeight()/2, 100, -1, 0);
 
-    Missile * m1 = new Missile(fw->GetScreenWidth()/2, fw->GetScreenHeight()/2,20,1,0.0);
+    Missile * missile = new Missile(fw->GetScreenWidth()/2, fw->GetScreenHeight()/2,20,10,0.0);
 
     while (true) {
 
         if(fw->GetInput()==SDLK_ESCAPE) break;
 
-        //fw->DrawAsteroid(a->GetX(), a->GetY(), a->GetSize());
+        if (missile) { // On vérifie que missile existe dans un premier temps
+            fw->DrawMissile(missile->GetX(),missile->GetY());
 
-        //a->Move(fw->GetScreenWidth(), fw->GetScreenHeight());
-
-        fw->DrawMissile(m1->GetX(),m1->GetY());
-
-        m1->Move();
-
+            if (missile->Move(fw->GetScreenWidth(), fw->GetScreenHeight())) {
+                // Si le missile sort de l'écran, on supprime l'objet
+                delete missile;
+                missile = nullptr;
+            }
+        }
         fw->Update();
     }
 }
