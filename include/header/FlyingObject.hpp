@@ -1,5 +1,9 @@
+// FlyingObject.hpp
+
 #ifndef FLYINGOBJECT_HPP
 #define FLYINGOBJECT_HPP
+
+#include <cmath>
 
 class FlyingObject {
 private:
@@ -21,6 +25,8 @@ public:
 
     virtual void Move();
     virtual bool Move(double screenWidth, double screenHeight);
+
+    static bool Collide(const FlyingObject& o1, const FlyingObject& o2);
 };
 
 #endif // FLYINGOBJECT_HPP
