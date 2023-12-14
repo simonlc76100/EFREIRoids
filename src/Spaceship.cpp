@@ -1,27 +1,33 @@
 #include "header/Spaceship.hpp"
 
-Spaceship::Spaceship(double x, double y, double size, double angle, double speed)
-        : FlyingObject(x, y, size), angle(angle), speed(speed){}
+Spaceship::Spaceship(double x, double y, double size, double angle, double xSpeed, double ySpeed)
+        : FlyingObject(x, y, size), angle(angle), xSpeed(xSpeed), ySpeed(ySpeed){}
 
 double Spaceship::GetAngle() const {
     return angle;
 }
 
 void Spaceship::SpeedUp(double accelerationFactor) {
-    speed += accelerationFactor;
+    double radianAngle = M_PI * (angle-90) / 180;
+    xSpeed += cos(radianAngle) * accelerationFactor;
+    ySpeed += sin(radianAngle) * accelerationFactor;
 }
 
 void Spaceship::SpeedDown(double decelerationFactor) {
-    speed -= decelerationFactor;
-    if (speed < 0) speed = 0;
+    double radianAngle = M_PI * (angle-90) / 180;
+    xSpeed -= cos(radianAngle) * decelerationFactor;
+    ySpeed -= sin(radianAngle) * decelerationFactor;
 }
 
-void Spaceship::Move() {
-    double radianAngle = M_PI * (angle-90) / 180;
-    double dx = cos(radianAngle) * speed;
-    double dy = sin(radianAngle) * speed;
-    SetX(GetX() + dx);
-    SetY(GetY() + dy);
+
+bool Spaceship::Move(double screenWidth, double screenHeight) {
+
+    if(GetX() > screenWidth) SetX(0);
+
+    if(GetX() < 0) SetX(screenWidth);
+
+    SetX(GetX() + xSpeed);
+    SetY(GetY() + ySpeed);
 }
 
 void Spaceship::Rotate(double rAngle) {
