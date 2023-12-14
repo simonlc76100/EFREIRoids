@@ -23,18 +23,15 @@ void Asteroid::SetYSpeed(double ySpeed) {
 }
 
 void Asteroid::Move() {
-    SetX(GetX() + xSpeed);
-    SetY(GetY() + ySpeed);
+
 }
 
 bool Asteroid::Move(double screenWidth, double screenHeight) {
+    SetX(GetX() > screenWidth ? 0 : (GetX() < 0 ? screenWidth : GetX()));
+    SetY(GetY() > screenHeight ? 0 : (GetY() < 0 ? screenHeight : GetY()));
 
-    this->Move();
-
-    if(GetX() > screenWidth) SetX(0);
-
-    if(GetX() < 0) SetX(screenWidth);
-
+    SetX(GetX() + xSpeed);
+    SetY(GetY() + ySpeed);
 
     return true;
 }
