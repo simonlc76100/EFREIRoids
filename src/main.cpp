@@ -8,7 +8,7 @@ int main(int argc, char* argv[]) {
 
     Asteroid *asteroid = new Asteroid(fw->GetScreenWidth()/2, fw->GetScreenHeight()/2-300, 100, 0, 0);
     Missile *missile = new Missile(fw->GetScreenWidth()/2, fw->GetScreenHeight()/2, 20, 1, 270.0);
-    Spaceship *spaceship = new Spaceship(fw->GetScreenWidth()/2, fw->GetScreenHeight()/2, 20, 0.0, 0.0, 0.0);
+    Spaceship *spaceship = new Spaceship(fw->GetScreenWidth()/2, fw->GetScreenHeight()/2, 20, 0.0, 0.0);
 
     while (true) {
         int key = fw->GetInput();
@@ -46,7 +46,7 @@ int main(int argc, char* argv[]) {
         }
 
         if (spaceship) {
-            spaceship->Move(fw->GetScreenWidth(), fw->GetScreenHeight());
+            spaceship->Move();
             fw->DrawShip(spaceship->GetX(), spaceship->GetY(), spaceship->GetAngle(), 0.0, false);
         }
 

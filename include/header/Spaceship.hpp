@@ -6,16 +6,16 @@
 class Spaceship : public FlyingObject {
 private:
     double angle;
-    double xSpeed, ySpeed;
+    double speed;
 
 public:
-    Spaceship(double x, double y, double size, double angle, double xSpeed, double ySpeed);
+    Spaceship(double x, double y, double size, double angle, double speed);
 
     double GetAngle() const;
 
     void SpeedUp(double accelerationFactor);
     void SpeedDown(double decelerationFactor);
-    bool Move(double screenWidth, double screenHeight) override;
+    void Move() override;
     void Rotate(double rAngle);
 };
 
