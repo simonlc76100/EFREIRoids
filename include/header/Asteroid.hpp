@@ -17,7 +17,6 @@ public:
     void SetXSpeed(double xSpeed);
     void SetYSpeed(double ySpeed);
 
-    void Move() override;
     bool Move(double screenWidth, double screenHeight) override;
 };
 
