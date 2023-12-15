@@ -6,11 +6,9 @@
 class Spaceship : public FlyingObject {
 private:
     double angle;
-    double xSpeed;
-    double ySpeed;
-
+    double xSpeed, ySpeed, maxSpeed;
 public:
-    Spaceship(double x, double y, double size, double angle, double xSpeed, double ySpeed);
+    Spaceship(double x, double y, double size, double angle, double xSpeed, double ySpeed, double maxSpeed);
 
     double GetAngle() const;
 

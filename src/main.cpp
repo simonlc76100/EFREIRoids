@@ -8,7 +8,7 @@ int main(int argc, char* argv[]) {
 
     Asteroid *asteroid = new Asteroid(fw->GetScreenWidth()/2, fw->GetScreenHeight()/2-300, 100, 0, 0);
     Missile *missile = new Missile(fw->GetScreenWidth()/2, fw->GetScreenHeight()/2, 20, 1, 270.0);
-    Spaceship *spaceship = new Spaceship(fw->GetScreenWidth()/2, fw->GetScreenHeight()/2, 20, 0.0, 0.0, 0.0);
+    Spaceship *spaceship = new Spaceship(fw->GetScreenWidth()/2, fw->GetScreenHeight()/2, 20, 0.0, 0.0, 0.0, 10.0);
 
     while (true) {
         int key = fw->GetInput();
@@ -17,10 +17,10 @@ int main(int argc, char* argv[]) {
 
         switch (key) {
             case SDLK_UP:
-                spaceship->SpeedUp(0.20);
+                spaceship->SpeedUp(0.2);
                 break;
             case SDLK_DOWN:
-                spaceship->SpeedDown(0.20);
+                spaceship->SpeedDown(0.2);
                 break;
             case SDLK_LEFT:
                 spaceship->Rotate(-10.0);
