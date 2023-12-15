@@ -16,6 +16,9 @@ public:
     void SpeedDown(double decelerationFactor);
     bool Move(double screenWidth, double screenHeight) override;
     void Rotate(double rAngle);
+
+    std::string GetTypeName() const override { return "Spaceship"; }
+
 };
 
-#endif // SPACESHIP_HPP
+#endif //SPACESHIP_HPP

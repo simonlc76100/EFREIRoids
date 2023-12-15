@@ -42,7 +42,6 @@ bool Spaceship::Move(double screenWidth, double screenHeight) {
     return true;
 }
 
-
 void Spaceship::Rotate(double rAngle) {
     angle += rAngle;
 }

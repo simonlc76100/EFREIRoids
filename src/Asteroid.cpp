@@ -1,10 +1,8 @@
 #include "header/Asteroid.hpp"
 
-// Constructeur
 Asteroid::Asteroid(double x, double y, double size, double xSpeed, double ySpeed)
         : FlyingObject(x, y, size), xSpeed(xSpeed), ySpeed(ySpeed) {}
 
-// Getters
 double Asteroid::GetXSpeed() const {
     return xSpeed;
 }
@@ -13,7 +11,6 @@ double Asteroid::GetYSpeed() const {
     return ySpeed;
 }
 
-// Setters
 void Asteroid::SetXSpeed(double xSpeed) {
     this->xSpeed = xSpeed;
 }

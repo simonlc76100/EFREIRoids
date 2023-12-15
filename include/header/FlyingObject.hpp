@@ -1,9 +1,8 @@
-// FlyingObject.hpp
-
 #ifndef FLYINGOBJECT_HPP
 #define FLYINGOBJECT_HPP
 
 #include <cmath>
+#include <string>
 
 class FlyingObject {
 private:
@@ -12,7 +11,6 @@ private:
     double size;
 
 public:
-    // Constructeur
     FlyingObject(double x, double y, double size);
 
     double GetX() const;
@@ -27,6 +25,8 @@ public:
     virtual bool Move(double screenWidth, double screenHeight);
 
     static bool Collide(const FlyingObject& o1, const FlyingObject& o2);
+
+    virtual std::string GetTypeName() const = 0;
 };
 
-#endif // FLYINGOBJECT_HPP
+#endif //FLYINGOBJECT_HPP

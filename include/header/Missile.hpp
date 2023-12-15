@@ -21,7 +21,7 @@ public:
     void Move() override;
     bool Move(double screenWidth, double screenHeight) override;
 
+    std::string GetTypeName() const override { return "Missile"; }
 };
-
 
 #endif //MISSILE_HPP

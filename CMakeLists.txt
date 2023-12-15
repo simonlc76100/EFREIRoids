@@ -8,20 +8,27 @@ file(COPY images/ DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/images/)
 
 set(
         SRCS
-        src/main.cpp
+        src/Asteroid.cpp
+        src/Controller.cpp
+        src/FlyingObject.cpp
         src/Framework.cpp
+        src/main.cpp
+        src/Missile.cpp
+        src/Model.cpp
+        src/Spaceship.cpp
+        src/View.cpp
 )
 
 set(
         HEADER
-        include/header/Framework.hpp
-        src/Asteroid.cpp
-        src/FlyingObject.cpp
+        include/header/Asteroid.hpp
+        include/header/Controller.hpp
         include/header/FlyingObject.hpp
-        src/Missile.cpp
+        include/header/Framework.hpp
         include/header/Missile.hpp
+        include/header/Model.hpp
         include/header/Spaceship.hpp
-        src/Spaceship.cpp
+        include/header/View.hpp
 )
 
 find_package(SDL2 REQUIRED)

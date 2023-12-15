@@ -4,7 +4,6 @@
 Missile::Missile(double x, double y, double size, double speed, double angle)
         : FlyingObject(x, y, size), speed(speed), angle(angle) {}
 
-// Getters
 double Missile::GetSpeed() const {
     return speed;
 }
@@ -13,7 +12,6 @@ double Missile::GetAngle() const {
     return angle;
 }
 
-// Setters
 void Missile::SetSpeed(double speed) {
     this->speed = speed;
 }
