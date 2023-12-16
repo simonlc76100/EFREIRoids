@@ -18,16 +18,16 @@ void Model::PlayerAction() {
 
     // Vérification des touches maintenues et réaction en conséquence
     if (framework->IsKeyPressed(SDLK_UP)) {
-        spaceship->SpeedUp(0.2);
+        spaceship->SpeedUp(0.05);
     }
     if (framework->IsKeyPressed(SDLK_DOWN)) {
-        spaceship->SpeedDown(0.2);
+        spaceship->SpeedDown(0.05);
     }
     if (framework->IsKeyPressed(SDLK_LEFT)) {
-        spaceship->Rotate(-10.0);
+        spaceship->Rotate(-3.0);
     }
     if (framework->IsKeyPressed(SDLK_RIGHT)) {
-        spaceship->Rotate(10.0);
+        spaceship->Rotate(3.0);
     }
 }
 

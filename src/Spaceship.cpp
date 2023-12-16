@@ -7,29 +7,24 @@ double Spaceship::GetAngle() const {
     return angle;
 }
 
-void Spaceship::SpeedUp(double accelerationFactor) {
-    double radianAngle = M_PI * (angle-90) / 180;
-    xSpeed += cos(radianAngle) * accelerationFactor;
-    ySpeed += sin(radianAngle) * accelerationFactor;
+void Spaceship::AdjustSpeed(double factor) {
+    double radianAngle = M_PI * (angle - 90) / 180;
+    xSpeed += cos(radianAngle) * factor;
+    ySpeed += sin(radianAngle) * factor;
 
-    double speed = sqrt(xSpeed*xSpeed + ySpeed*ySpeed);
+    double speed = sqrt(xSpeed * xSpeed + ySpeed * ySpeed);
     if (speed > maxSpeed) {
         xSpeed = (xSpeed / speed) * maxSpeed;
         ySpeed = (ySpeed / speed) * maxSpeed;
     }
 }
 
+void Spaceship::SpeedUp(double accelerationFactor) {
+    AdjustSpeed(accelerationFactor);
+}
+
 void Spaceship::SpeedDown(double decelerationFactor) {
-    double radianAngle = M_PI * (angle-90) / 180;
-    xSpeed -= cos(radianAngle) * decelerationFactor;
-    ySpeed -= sin(radianAngle) * decelerationFactor;
-
-    double speed = sqrt(xSpeed * xSpeed + ySpeed * ySpeed);
-
-    if (speed > maxSpeed) {
-        xSpeed = (xSpeed / speed) * maxSpeed * (xSpeed < 0 ? -1 : 1);
-        ySpeed = (ySpeed / speed) * maxSpeed * (ySpeed < 0 ? -1 : 1);
-    }
+    AdjustSpeed(-decelerationFactor);
 }
 
 bool Spaceship::Move(double screenWidth, double screenHeight) {
