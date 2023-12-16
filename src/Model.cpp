@@ -1,11 +1,13 @@
 #include "header/Model.hpp"
+#include <random>
+#include <cmath>
 
 Model::Model(Framework* fw, int screenWidth, int screenHeight)
-        : framework(fw),
-            screenWidth(screenWidth), screenHeight(screenHeight),
-            asteroid(new Asteroid(screenWidth / 2, screenHeight / 2 - 300, 100, 0, 0)),
-            missile(nullptr),
-            spaceship(new Spaceship(screenWidth / 2, screenHeight / 2, 20, 0.0, 0.0, 0.0, 10.0)) {}
+        : framework(fw), screenWidth(screenWidth), screenHeight(screenHeight),
+          asteroid(nullptr), missile(nullptr),
+          spaceship(new Spaceship(screenWidth / 2, screenHeight / 2, 20, 0.0, 0.0, 0.0, 10.0)) {
+    InitializeAsteroid();
+}
 
 Model::~Model() {
     delete asteroid;
@@ -16,7 +18,6 @@ Model::~Model() {
 void Model::PlayerAction() {
     if (spaceship == nullptr) return;
 
-    // Vérification des touches maintenues et réaction en conséquence
     if (framework->IsKeyPressed(SDLK_UP)) {
         spaceship->SpeedUp(0.05);
     }
@@ -30,7 +31,6 @@ void Model::PlayerAction() {
         spaceship->Rotate(3.0);
     }
 }
-
 
 void Model::Update() {
     if (asteroid != nullptr) {
@@ -60,3 +60,32 @@ std::vector<FlyingObject*> Model::GetFlyingObjects() {
     if (spaceship) objects.push_back(spaceship);
     return objects;
 }
+
+void Model::InitializeAsteroid() {
+    std::random_device rd;
+    std::mt19937 gen(rd());
+
+    std::uniform_int_distribution<> zone_dist(0, 7);
+    int zone = zone_dist(gen);
+    if (zone >= 4) zone++;
+
+    int zoneWidth = screenWidth / 3;
+    int zoneHeight = screenHeight / 3;
+    int minX = (zone % 3) * zoneWidth;
+    int minY = (zone / 3) * zoneHeight;
+
+    std::uniform_real_distribution<> x_dist(minX, minX + zoneWidth);
+    std::uniform_real_distribution<> y_dist(minY, minY + zoneHeight);
+
+    delete asteroid;
+    double x = x_dist(gen);
+    double y = y_dist(gen);
+    double speed = 1.0;
+    std::uniform_real_distribution<> angle_dist(-180.0, 180.0);
+    double angle = angle_dist(gen);
+    double xSpeed = speed * cos(angle * M_PI / 180);
+    double ySpeed = speed * sin(angle * M_PI / 180);
+    asteroid = new Asteroid(x, y, 100, xSpeed, ySpeed);
+
+}
+

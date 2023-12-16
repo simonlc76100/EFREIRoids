@@ -23,6 +23,8 @@ public:
     void PlayerAction();
     void Update();
     std::vector<FlyingObject*> GetFlyingObjects();
+    void InitializeAsteroid();
+
 };
 
 #endif // MODEL_HPP
