@@ -4,7 +4,7 @@ project(SDLTEST VERSION 0.1.0 LANGUAGES C CXX)
 set (SDL2_DIR ./)
 
 file(COPY bin/SDL2.dll DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
-file(COPY images/ DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/images/)
+file(COPY assets/images/ DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/images/)
 
 set(
         SRCS
