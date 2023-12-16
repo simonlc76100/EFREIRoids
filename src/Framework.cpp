@@ -280,3 +280,18 @@ void Framework::DrawSpriteAlpha(SDL_Texture * texture, int x, int y, int w, int 
     if (SDL_RenderCopyEx(renderer, texture, NULL, &dest, angle, NULL, flip))
         cerr << "DrawSpriteAlpha -> SDL_RenderCopyEx failed: "  << SDL_GetError();
 }
+
+void Framework::PollEvents() {
+    SDL_Event event;
+    while (SDL_PollEvent(&event)) {
+        if (event.type == SDL_KEYDOWN) {
+            keyStates[event.key.keysym.sym] = true;
+        } else if (event.type == SDL_KEYUP) {
+            keyStates[event.key.keysym.sym] = false;
+        }
+    }
+}
+
+bool Framework::IsKeyPressed(SDL_Keycode key) {
+    return keyStates[key];
+}

@@ -20,7 +20,7 @@ public:
     Model(Framework* fw, int screenWidth, int screenHeight);
     ~Model();
 
-    void PlayerAction(int key);
+    void PlayerAction();
     void Update();
     std::vector<FlyingObject*> GetFlyingObjects();
 };

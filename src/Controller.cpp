@@ -10,13 +10,20 @@ Controller::~Controller() {
 
 void Controller::LaunchGame() {
     while (true) {
-        int key = framework->GetInput();
-        if (key == SDLK_ESCAPE) {
-            break;
+
+        framework->PollEvents(); // Mise à jour de l'état des touches
+
+        if (framework->IsKeyPressed(SDLK_ESCAPE)) {
+            break; // Sortir de la boucle et quitter le jeu
         }
-        model->PlayerAction(key);
+
+        model->PlayerAction(); // Gère les actions du joueur en fonction des touches enfoncées
         model->Update();
+
         std::vector<FlyingObject*> objects = model->GetFlyingObjects();
         view->RefreshDisplay(objects);
+
+        // Ajout d'un délai si nécessaire pour contrôler la vitesse de mise à jour du jeu
     }
 }
+

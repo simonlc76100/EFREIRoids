@@ -7,6 +7,7 @@
 #define FRAMEWORK_HPP_
 
 #include <string>
+#include <map>
 #include "SDL2/SDL.h"
 
 using std::string;
@@ -93,6 +94,9 @@ public:
     // * x, y : coordonnées du centre du missile, en pixels
     void DrawMissile(int x, int y);
 
+    void PollEvents();
+    bool IsKeyPressed(SDL_Keycode key);
+
 private:
     //////////
     // Fenêtre
@@ -148,6 +152,9 @@ private:
     // -------
     // Renvoie : la texture contenant l'image chargée
     SDL_Texture * GetTexture(string imgName);
+
+    std::map<SDL_Keycode, bool> keyStates;
+
 };
 
 #endif
