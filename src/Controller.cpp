@@ -16,6 +16,9 @@ void Controller::LaunchGame() {
         if (framework->IsKeyPressed(SDLK_ESCAPE)) {
             break;
         }
+        if (framework->IsKeyPressed(SDLK_SPACE)) {
+            model->FireMissile();
+        }
 
         model->PlayerAction();
         model->Update();

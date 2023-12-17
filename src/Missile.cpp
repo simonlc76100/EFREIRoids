@@ -22,10 +22,10 @@ void Missile::SetAngle(double angle) {
 
 void Missile::Move() {
 
-    double rad = angle * (M_PI/180.0);
+    double radianAngle = M_PI * (angle - 90) / 180;
 
-    SetX(GetX() + speed * cos(rad));
-    SetY(GetY() + speed * sin(rad));
+    SetX(GetX() + speed * cos(radianAngle));
+    SetY(GetY() + speed * sin(radianAngle));
 }
 
 bool Missile::Move(double screenWidth, double screenHeight) {

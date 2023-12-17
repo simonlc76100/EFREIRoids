@@ -24,7 +24,7 @@ public:
     void Update();
     std::vector<FlyingObject*> GetFlyingObjects();
     void InitializeAsteroid();
-
+    void FireMissile();
 };
 
 #endif // MODEL_HPP

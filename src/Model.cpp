@@ -86,6 +86,16 @@ void Model::InitializeAsteroid() {
     double xSpeed = speed * cos(angle * M_PI / 180);
     double ySpeed = speed * sin(angle * M_PI / 180);
     asteroid = new Asteroid(x, y, 100, xSpeed, ySpeed);
+}
 
+void Model::FireMissile(){
+
+    if(!missile) {
+        double x = spaceship->GetX();
+        double y = spaceship->GetY();
+        double speed = 5.0;
+        double angle = spaceship->GetAngle();
+        missile = new Missile(x, y, 10, speed, angle);
+    }
 }
 
